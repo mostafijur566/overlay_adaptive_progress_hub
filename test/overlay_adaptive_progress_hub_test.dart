@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:overlay_adaptive_progress_hub/src/overlay_adaptive_progress_hub.dart';
+import 'package:overlay_adaptive_progress_hub/overlay_adaptive_progress_hub.dart';
 
 void main() {
   testWidgets('OverlayAdaptiveProgressHub shows progress indicator when inAsyncCall is true', (WidgetTester tester) async {
