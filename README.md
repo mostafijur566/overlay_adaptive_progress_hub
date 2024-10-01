@@ -1,39 +1,77 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# OverlayAdaptiveProgressHub
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A Flutter package that provides an adaptive modal progress HUD (Heads-Up Display) overlay, enabling developers to easily indicate loading states within their applications. The package offers extensive customization options for opacity, color, progress indicators, offsets, and background blur effects, making it a flexible solution for Flutter apps.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- **Customizable Overlay:** Adjust the opacity, color, and blur intensity of the modal overlay.
+- **Adaptive Progress Indicators:** Use various progress indicators, including the default Android spinner or custom widgets.
+- **Position Control:** Set an offset to position the progress indicator anywhere on the screen.
+- **Dismissible Overlay:** Optionally allow users to dismiss the overlay by tapping on it.
+- **Responsive Design:** The overlay adjusts automatically to different screen sizes and orientations.
+  
+## Installation
 
-## Getting started
+Add the following dependency to your `pubspec.yaml` file:
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  overlay_adaptive_progress_hub: ^1.0.0
 ```
 
-## Additional information
+Next, import the package
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```
+import 'package:modal_progress_hud/modal_progress_hud.dart';
+```
+
+```
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Overlay Adaptive Progress Hub Example',
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  bool _isLoading = false;
+
+  void _toggleLoading() {
+    setState(() {
+      _isLoading = !_isLoading;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return OverlayAdaptiveProgressHub(
+      inAsyncCall: _isLoading,
+      opacity: 0.5,
+      color: Colors.black,
+      progressIndicator: CircularProgressIndicator(),
+      dismissible: true,
+      child: Scaffold(
+        appBar: AppBar(title: Text('Overlay Adaptive Progress Hub Example')),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: _toggleLoading,
+            child: Text(_isLoading ? 'Stop Loading' : 'Start Loading'),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
