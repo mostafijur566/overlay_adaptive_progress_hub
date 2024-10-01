@@ -1,6 +1,6 @@
 name: overlay_adaptive_progress_hub
 description: "A Flutter package that provides an adaptive modal progress HUD overlay, allowing developers to easily indicate loading states with customizable options for opacity, color, progress indicators, offsets, and background blur effects."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/mostafijur566/overlay_adaptive_progress_hub
 
 environment:

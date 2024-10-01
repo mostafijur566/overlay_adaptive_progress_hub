@@ -16,7 +16,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  overlay_adaptive_progress_hub: ^0.0.1
+  overlay_adaptive_progress_hub: ^0.0.2
 ```
 
 Next, import the package
